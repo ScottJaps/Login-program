@@ -1,0 +1,25 @@
+%h1 Log In 
+
+
+= form_tag ifoapp_index_path
+
+%table
+  %thead
+    %tr
+      %th= label :volunteer, 'Name'
+      %th= label :volunteer, 'Phone Number'
+      %th= label :volunteer, 'Email(optional)'
+      %th= label :volunteer, 'Program'
+      %th= label :volunteer, 'Time In'
+    %tbody
+      %td= text_field :volunteer, 'name'
+      %td= text_field :volunteer, 'phoneNumber'
+      %td= text_field :volunteer, 'email'
+      %td= select :volunteer, :program, ['Food Shelf', 'Homework Club', 'Other']
+      %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true}
+
+
+
+= submit_tag 'Sign In!', :id=>"Sign_In"
+  
+  

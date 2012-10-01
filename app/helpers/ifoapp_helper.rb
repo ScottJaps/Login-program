@@ -1,0 +1,2 @@
+module IfoappHelper
+end

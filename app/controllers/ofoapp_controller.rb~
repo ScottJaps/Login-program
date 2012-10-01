@@ -1,0 +1,4 @@
+class OfoappController < ApplicationController
+  def index
+  end
+end

@@ -1,0 +1,22 @@
+
+
+
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Phone number
+      %th Program
+      %th Time In
+      %th Time out
+      %th Sign Out
+    %tbody
+    - @the_volunteers.each do |person|
+      %tr
+        %td= person.name 
+        %td= person.phoneNumber
+        %td= person.program
+        %td= person.time_in
+        %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true}
+        %td= submit_tag 'Sign Out!', :id=>"Sign_Out"
