@@ -15,13 +15,12 @@ ActiveRecord::Schema.define(:version => 20120928190409) do
 
   create_table "volunteers", :force => true do |t|
     t.string   "name"
-    t.string   "phoneNumber"
-    t.string   "email"
+    t.string   "phoneNumberEmail"
     t.string   "program"
     t.datetime "time_in"
     t.datetime "time_out"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

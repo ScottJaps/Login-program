@@ -2,8 +2,7 @@ class CreateVolunteers < ActiveRecord::Migration
   def up
     create_table :volunteers do |t|
       t.string        :name
-      t.string        :phoneNumber
-      t.string        :email
+      t.string        :phoneNumberEmail
       t.string        :program
       t.datetime      :time_in
       t.datetime      :time_out

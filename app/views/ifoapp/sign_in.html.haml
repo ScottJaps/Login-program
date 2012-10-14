@@ -6,17 +6,15 @@
 %table
   %thead
     %tr
-      %th= label :volunteer, 'Name'
-      %th= label :volunteer, 'Phone Number'
-      %th= label :volunteer, 'Email(optional)'
+      %th Name
+      %th Phone Number or Email (required)
       %th= label :volunteer, 'Program'
       %th= label :volunteer, 'Time In'
     %tbody
       %td= text_field :volunteer, 'name'
-      %td= text_field :volunteer, 'phoneNumber'
-      %td= text_field :volunteer, 'email'
+      %td= text_field :volunteer, 'phoneNumberEmail'
       %td= select :volunteer, :program, ['Food Shelf', 'Homework Club', 'Other']
-      %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true}
+      %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true, :default =>  @currentTime}
 
 
 

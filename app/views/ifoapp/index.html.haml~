@@ -1,12 +1,11 @@
 -# index page
 
-
 %table
   %thead
     %tr
       %th Welcome
-      %th
     %tbody
       %tr
-        %td= link_to "Sign In", {:controller => "ifoapp", :action => "sign_in"}, :id => "Sign_In"
+        %td= link_to "Sign In", {:action => "sign_in", :controller => "ifoapp"}, :id => "Sign_In"
         %td= link_to "Sign Out", {:controller => "ifoapp", :action => "sign_out"}, :id => "Sign_Out"
+        %td#offsettd= link_to "Staff Login", {:controller => "ifoapp", :action => "viewall"}, :id => "staff_login"

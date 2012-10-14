@@ -8,7 +8,6 @@ gem 'rails', '3.2.8'
 gem 'haml'
 gem 'sass'
 
-
 group :test do
   gem 'guard-rspec'
 end

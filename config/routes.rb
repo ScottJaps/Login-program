@@ -14,6 +14,12 @@ Ifoapp::Application.routes.draw do
   match '/' => "ifoapp#index"
   match '/sign_in' => "ifoapp#sign_in"
   match '/sign_out' => "ifoapp#sign_out"
+  match '/viewall' => "ifoapp#viewall"
+  match '/staff_in' => "ifoapp#staff_in"
+  match '/staff_login' => "ifoapp#staff_login"
+  match '/staff_logout' => "ifoapp#staff_logout"
+  match '/reset_viewall' => "ifoapp#reset_viewall"
+  match '/sign_person_out' => "ifoapp#sign_person_out"
   resources :ifoapp
 
   # Sample resource route with options:

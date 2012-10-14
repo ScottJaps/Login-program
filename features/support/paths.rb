@@ -16,7 +16,10 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
       '/ifoapp'
-
+    when /^the staff view page$/
+      '/viewall'
+    when /^the staff login page$/
+      '/staff_in'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

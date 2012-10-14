@@ -2,5 +2,32 @@
 background-image: url("/assets/IOCP_logo.jpg");
 background-repeat: no-repeat;
 background-position: left;
-height: 200px;
+height: 100px;
+}
+
+#offsettd{
+padding-left: 500px;
+}
+
+#offsettf{
+padding-left: 900px;
+}
+
+#volunteerstable
+{
+border: 1px solid black;
+border-spacing: 0; 
+}
+#volunteerstable td, #volunteerstable th 
+{
+border: 1px solid black;
+padding:3px 10px 2px 7px;
+text-align:center;
+}
+#volunteerstable th 
+{
+font-size:1.1em;
+text-align:center;
+padding-top:5px;
+padding-bottom:4px;
 }
