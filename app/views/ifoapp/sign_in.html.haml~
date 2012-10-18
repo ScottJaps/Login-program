@@ -1,19 +1,30 @@
 %h1 Log In 
 
+<script>
+$(document).ready(function(){
+$("#volunteer_program").change(function(){
+if($("#volunteer_program").val() == "Other"){
+$(".hidden_option").fadeIn('fast');   
+}            
+});        
+});
+</script>
 
 = form_tag ifoapp_index_path
 
 %table
   %thead
     %tr
-      %th= label :volunteer, 'Name'
-      %th= label :volunteer, 'Phone Number or Email (required)'
+      %th Name
+      %th Phone Number or Email (required)
       %th= label :volunteer, 'Program'
+      %th.hidden_option= label :volunteer, 'Please Specifiy'
       %th= label :volunteer, 'Time In'
     %tbody
-      %td= text_field :volunteer, 'name'
+      %td= text_field :volunteer, 'name' , :size => 20
       %td= text_field :volunteer, 'phoneNumberEmail'
-      %td= select :volunteer, :program, ['Food Shelf', 'Homework Club', 'Other']
+      %td= select :volunteer, :program, ['Food Shelf', 'Admin. Support/Data Entry','Holiday Gift Program', 'Back to School', 'Board/Committe Meeting', 'Childcare', 'Client Program Support', 'CONNECT', 'Driver/Dispatcher', 'Employment', 'Fundraising Events', 'Housing', 'Intake', 'CfKL', 'Reception', 'ReSale 101', 'Service Projects', 'Other']
+      %td.hidden_option= text_field :volunteer, 'description'
       %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true, :default =>  @currentTime}
 
 

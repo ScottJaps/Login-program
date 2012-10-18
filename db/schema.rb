@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120928190409) do
     t.string   "name"
     t.string   "phoneNumberEmail"
     t.string   "program"
+    t.string   "description"
     t.datetime "time_in"
     t.datetime "time_out"
     t.datetime "created_at",       :null => false

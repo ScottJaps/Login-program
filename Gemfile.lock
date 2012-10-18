@@ -185,6 +185,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  libv8 (= 3.3.10.4)
   pg
   rails (= 3.2.8)
   rspec-rails

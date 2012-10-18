@@ -8,9 +8,9 @@ class IfoappController < ApplicationController
     t=Time.now
     if t.min >=52 && t.min <=55
       t = t + (8.minutes)
-   elsif t.min >= 56
+    elsif t.min >= 56
       t = t + (5.minutes)
-   end
+    end
     #this prevents minutes from rounding to 60, needs to round to 0 and increment hour by 1, doing it manually will lead to problems right before midnight.
     minute = ((( t.min + 7.5 ) / 15).to_i * 15)%60
     @currentTime = Time.local(t.year, t.month, t.day, t.hour, minute)

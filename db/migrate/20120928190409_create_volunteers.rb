@@ -4,6 +4,7 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string        :name
       t.string        :phoneNumberEmail
       t.string        :program
+      t.string        :description
       t.datetime      :time_in
       t.datetime      :time_out
       t.timestamps    

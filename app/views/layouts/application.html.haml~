@@ -7,7 +7,7 @@
     = csrf_meta_tags
 
   %body
-  #picture
+    #picture
     %h1.title Interfaith Outreach and Community Partners 
     #main
       - if flash[:notice]
