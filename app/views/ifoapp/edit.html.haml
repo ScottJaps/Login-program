@@ -1,0 +1,28 @@
+%table#volunteerstable
+  %thead
+    %tr
+      %th Name
+      %th Phone Number or Email
+      %th Program
+      %th Date
+      %th Time In
+      %th Time out
+      %th Hours Volunteered
+    %tbody
+      %tr
+        %td= @person.name 
+        %td= @person.phoneNumberEmail
+        %td= @person.program
+        %td= @person.time_in.strftime("%m/%d/%Y")
+        %td= @person.time_in.strftime("%I:%M%p")       
+        %td= timeOut(@person)
+        %td= timeVolunteered(@person)
+        
+= form_tag ifoapp_path(@person), :method => :put do
+
+
+  = label :volunteer, :time_out, 'Time Out: '
+  = time_select :volunteer, :time_out, {:minute_step => 15, :ampm => true}
+
+
+  = submit_tag 'Update Volunteer Info'

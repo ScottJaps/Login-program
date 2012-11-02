@@ -1,0 +1,47 @@
+= button_to "Back to Main Page (Logout)", {:controller => "ifoapp", :action => "staff_logout"}
+
+= form_tag '/viewall' do 
+  %table
+    %thead
+      %tr
+        %th Start Date
+        %th End Date
+        %th Program
+        %th Name
+      %tbody
+        %td= date_select(:startdate, "date", :default => @selected_startdate || Date.today, :order => [:month, :day, :year], :start_year => 2012, :end_year => Date.today.year )
+        %td= date_select(:enddate, "date", :default => @selected_enddate, :order => [:month, :day, :year], :start_year => Date.today.year - 3, :end_year => Date.today.year )
+        %td= select_tag 'program', options_for_select(["Food Shelf", "Homework Club", "Other"], @selected_program), :include_blank => true
+        %td= text_field_tag 'name', @selected_name
+  = submit_tag 'Refresh', :id => 'submit' 
+
+= button_to "Reset", :action => 'reset_viewall'
+
+%table#volunteerstable
+  %thead
+    %tr
+      %th=link_to 'Name', :sort => "name"
+      %th=link_to 'Phone Number or Email', :sort => "phoneNumberEmail"
+      %th=link_to 'Date', :sort => "time_in"      
+      %th Program
+      %th Description
+      %th Hours Volunteered
+      %th Time In
+      %th Time out
+      %th Sign person out
+    %tbody
+    - @the_volunteers.each do |person|
+      %tr
+        %td= person.name 
+        %td= person.phoneNumberEmail
+        %td= person.time_in.strftime("%m/%d/%Y")
+        %td= person.program
+        %td= person.description
+        %td= timeVolunteered(person)
+        %td= person.time_in.strftime("%I:%M%p")       
+        %td= timeOut(person)
+        %td= link_to 'Sign Out', edit_ifoapp_path(person)
+        
+        
+        
+= button_to "Back to Main Page (Logout)", {:controller => "ifoapp", :action => "staff_logout"}

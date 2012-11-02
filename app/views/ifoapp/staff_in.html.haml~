@@ -1,0 +1,16 @@
+%h1 Staff Log in
+
+
+
+= form_tag '/staff_login'
+
+%table
+  %thead
+    %tr
+      %th= label :volunteer, 'Password'
+    %tbody
+      %td= text_field_tag  'password'
+
+
+
+= submit_tag 'Sign In!', :id=>"Staff_Sign_In"
