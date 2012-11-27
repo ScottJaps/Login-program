@@ -21,7 +21,7 @@ $(".hidden_option").fadeIn('fast');
       %th.hidden_option= label :volunteer, 'Please Specifiy'
       %th= label :volunteer, 'Time In'
     %tbody
-      %td= text_field :volunteer, 'name' , :size => 20
+      %td= text_field :volunteer, 'name' , :size => 40
       %td= text_field :volunteer, 'phoneNumberEmail'
       %td= select :volunteer, :program, ['Food Shelf', 'Admin. Support/Data Entry','Holiday Gift Program', 'Back to School', 'Board/Committe Meeting', 'Childcare', 'Client Program Support', 'CONNECT', 'Driver/Dispatcher', 'Employment', 'Fundraising Events', 'Housing', 'Intake', 'CfKL', 'Reception', 'ReSale 101', 'Service Projects', 'Other']
       %td.hidden_option= text_field :volunteer, 'description', :size => 20
