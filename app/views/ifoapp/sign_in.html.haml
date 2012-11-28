@@ -26,7 +26,7 @@ $(".hidden_option").fadeIn('fast');
       %td= select :volunteer, :program, ['Food Shelf', 'Admin. Support/Data Entry','Holiday Gift Program', 'Back to School', 'Board/Committe Meeting', 'Childcare', 'Client Program Support', 'CONNECT', 'Driver/Dispatcher', 'Employment', 'Fundraising Events', 'Housing', 'Intake', 'CfKL', 'Reception', 'ReSale 101', 'Service Projects', 'Other']
       %td.hidden_option= text_field :volunteer, 'description', :size => 20
       %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true, :default =>  @currentTime}
-
+      %td= submit_tag 'Sign In!', :id=>"Sign_In"
 
 
 = submit_tag 'Sign In!', :id=>"Sign_In"
