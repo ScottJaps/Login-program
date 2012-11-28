@@ -24,7 +24,7 @@ class IfoappController < ApplicationController
   
   def sign_person_out
     the_volunteer = Volunteer.find_by_id(params[:id])
-    flash[:notice] = "#{the_volunteer.name} was Successfully Signed Out."
+    flash[:notice] = "Sign out successful."
     the_volunteer.update_attribute(:time_out, DateTime.now)  
     #signs person out at current time
     redirect_to ifoapp_index_path
@@ -33,7 +33,7 @@ class IfoappController < ApplicationController
   def create
     @current_volunteer = Volunteer.create(params[:volunteer])
     if(@current_volunteer.errors.blank?)   #no errors
-      flash[:notice] = "#{@current_volunteer.name} was Successfully Signed In."    
+      flash[:notice] = "Sign in successful."    
     end
     flash[:notice] = @current_volunteer.errors.first.second if @current_volunteer.errors.any?
     #@current_volunteer.errors is a hash of all errors, the first one is the first error, of that error, the second part is the message part of the error (first part is the field that failed verification)
