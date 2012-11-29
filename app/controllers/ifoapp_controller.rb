@@ -35,7 +35,7 @@ class IfoappController < ApplicationController
     if(@current_volunteer.errors.blank?)   #no errors
       flash[:notice] = "Sign in successful."    
     end
-    flash[:notice] = @current_volunteer.errors.first.second if @current_volunteer.errors.any?
+    flash[:warning] = @current_volunteer.errors.first.second if @current_volunteer.errors.any?
     #@current_volunteer.errors is a hash of all errors, the first one is the first error, of that error, the second part is the message part of the error (first part is the field that failed verification)
     redirect_to ifoapp_index_path
   end
@@ -96,7 +96,7 @@ class IfoappController < ApplicationController
     if "Vol2013" == params[:password]  #this is the password, it needs to be changed
       redirect_to :action => "viewall" and return
     else
-      flash[:notice] = "wrong password"
+      flash[:warning] = "wrong password"
     end
     redirect_to :action => "staff_in"
   end
