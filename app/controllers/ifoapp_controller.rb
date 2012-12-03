@@ -15,6 +15,12 @@ class IfoappController < ApplicationController
     minute = ((( t.min + 7.5 ) / 15).to_i * 15)%60
     @currentTime = Time.local(t.year, t.month, t.day, t.hour, minute)
     #this rounds the time to the nearest 15 minutes for the default option of the time_select
+    #set defaults when people type bad things in
+    if flash[:volunteer]
+      @defaultName = flash[:volunteer]["name"]
+      @defaultPhone = flash[:volunteer]["phoneNumberEmail"]
+      @defaultProgram = flash[:volunteer]["program"]
+    end
   end
   
   def sign_out
@@ -33,11 +39,14 @@ class IfoappController < ApplicationController
   def create
     @current_volunteer = Volunteer.create(params[:volunteer])
     if(@current_volunteer.errors.blank?)   #no errors
-      flash[:notice] = "Sign in successful."    
-    end
-    flash[:warning] = @current_volunteer.errors.first.second if @current_volunteer.errors.any?
+      flash[:notice] = "Sign in successful."  
+      redirect_to ifoapp_index_path and return
+    else
+      flash[:warning] = @current_volunteer.errors.first.second
     #@current_volunteer.errors is a hash of all errors, the first one is the first error, of that error, the second part is the message part of the error (first part is the field that failed verification)
-    redirect_to ifoapp_index_path
+      flash[:volunteer] = params[:volunteer]
+      redirect_to :action => "sign_in"
+    end
   end
   
   def viewall
