@@ -16,14 +16,22 @@ $(".hidden_option").fadeIn('fast');
   %thead
     %tr
       %th First and Last Name
+<<<<<<< HEAD
       %th Phone Number or Email (required)
+=======
+      %th Phone OR Email (required)
+>>>>>>> 8709d323cc29c94cfc7716b59e44eb49261ddfe9
       %th= label :volunteer, 'Program'
       %th.hidden_option= label :volunteer, 'Please Specifiy'
       %th= label :volunteer, 'Time In'
     %tbody
       %td= text_field :volunteer, 'name' , :size => 40, :value => @defaultName
       %td= text_field :volunteer, 'phoneNumberEmail', :value => @defaultPhone
-      %td= select :volunteer, :program, ['Food Shelf', 'Admin. Support/Data Entry','Holiday Gift Program', 'Back to School', 'Board/Committe Meeting', 'Childcare', 'Client Program Support', 'CONNECT', 'Driver/Dispatcher', 'Employment', 'Fundraising Events', 'Housing', 'Intake', 'CfKL', 'Reception', 'ReSale 101', 'Service Projects', 'Other'], {:value => @defaultProgram}
+<<<<<<< HEAD
+      %td= select :volunteer, :program, ['Food Shelf', 'Admin. Support/Data Entry','Holiday Gift Program', 'Back to School', 'Board/Committe Meeting', 'Childcare', 'Client Program Support', 'CONNECT', 'Driver/Dispatcher', 'Employment', 'Fundraising Events', 'Housing', 'Intake', 'CfKL', 'Reception', 'ReSale 101', 'Service Projects', 'Other'], {:selected => @defaultProgram}
+=======
+      %td= select :volunteer, :program, ['Food Shelf', 'Admin. Support/Data Entry','Holiday Gift Program', 'Back to School', 'Board/Committe Meeting', 'Childcare', 'Client Program Support', 'CONNECT', 'Driver/Dispatcher', 'Employment', 'Fundraising Events', 'Housing', 'Intake', 'CfKI', 'Reception', 'ReSale 101', 'Service Projects', 'Other'], {:selected => @defaultProgram}
+>>>>>>> 8709d323cc29c94cfc7716b59e44eb49261ddfe9
       %td.hidden_option= text_field :volunteer, 'description', :size => 20
       %td= time_select :volunteer, :time_in, {:minute_step => 15, :ampm => true, :default =>  @currentTime}
       %td= submit_tag 'Sign In!', :id=>"Sign_In"
