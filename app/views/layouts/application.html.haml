@@ -9,7 +9,7 @@
   %body
     #picture
     %h1.title Interfaith Outreach and Community Partners
-    %h1.title Volunteer Login 
+    %h1.title= link_to  "Volunteer Login", ifoapp_index_path 
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

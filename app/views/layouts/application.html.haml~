@@ -8,7 +8,8 @@
 
   %body
     #picture
-    %h1.title Interfaith Outreach and Community Partners 
+    %h1.title= link_to "Interfaith Outreach and Community Partners", ifoapp_index_path
+    %h1.title= link_to  "Volunteer Login", ifoapp_index_path 
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
