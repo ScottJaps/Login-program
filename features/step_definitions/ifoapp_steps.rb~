@@ -12,7 +12,7 @@ When /^I fill in the fields on the sign in page$/ do
 end
 
 When /^I fill in the sign in password and submit$/ do
-  fill_in("password", :with => "the_pass")
+  fill_in("password", :with => "Vol2013")
   click_button("Staff_Sign_In")
 end
 
@@ -23,7 +23,7 @@ end
 
 
 Then /^I should see a sign in confirmation$/ do
-  assert page.has_content?("was Successfully Signed In")
+  assert page.has_content?("Sign in successful")
 end
 
 Then /^I should see a sign out confirmation$/ do
@@ -33,8 +33,8 @@ end
 Given /volunteers exist/ do 
    Volunteer.create({"name"=>"test1", "phoneNumberEmail"=>"phone123", "program"=>"Food Shelf", "time_in(1i)"=>"2012", "time_in(2i)"=>"10", "time_in(3i)"=>"11", "time_in(4i)"=>"18", "time_in(5i)"=>"15"}) 
    Volunteer.create({"name"=>"test2", "phoneNumberEmail"=>"phoneaaa", "program"=>"Other", "time_in(1i)"=>"2012", "time_in(2i)"=>"10", "time_in(3i)"=>"10", "time_in(4i)"=>"18", "time_in(5i)"=>"15"})
-   Volunteer.create({"name"=>"testbb", "phoneNumberEmail"=>"phoneccc", "program"=>"Food Shelf", "time_in(1i)"=>"2012", "time_in(2i)"=>"10", "time_in(3i)"=>"9", "time_in(4i)"=>"18", "time_in(5i)"=>"15"})
-   Volunteer.create({"name"=>"testaa", "phoneNumberEmail"=>"phonebbb", "program"=>"Other", "time_in(1i)"=>"2012", "time_in(2i)"=>"10", "time_in(3i)"=>"8", "time_in(4i)"=>"18", "time_in(5i)"=>"15"})  
+   Volunteer.create({"name"=>"testbb", "phoneNumberEmail"=>"phonebbb", "program"=>"Food Shelf", "time_in(1i)"=>"2012", "time_in(2i)"=>"10", "time_in(3i)"=>"9", "time_in(4i)"=>"18", "time_in(5i)"=>"15"})
+   Volunteer.create({"name"=>"testaa", "phoneNumberEmail"=>"phoneccc", "program"=>"Other", "time_in(1i)"=>"2012", "time_in(2i)"=>"10", "time_in(3i)"=>"8", "time_in(4i)"=>"18", "time_in(5i)"=>"15"})  
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
 end

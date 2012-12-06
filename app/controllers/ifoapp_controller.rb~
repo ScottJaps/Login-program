@@ -8,13 +8,19 @@ class IfoappController < ApplicationController
     t=Time.now
     if t.min >=52 && t.min <=55
       t = t + (8.minutes)
-   elsif t.min >= 56
+    elsif t.min >= 56
       t = t + (5.minutes)
-   end
+    end
     #this prevents minutes from rounding to 60, needs to round to 0 and increment hour by 1, doing it manually will lead to problems right before midnight.
     minute = ((( t.min + 7.5 ) / 15).to_i * 15)%60
     @currentTime = Time.local(t.year, t.month, t.day, t.hour, minute)
     #this rounds the time to the nearest 15 minutes for the default option of the time_select
+    if flash[:volunteer]
+      @defaultName = flash[:volunteer]["name"]
+      @defaultPhone = flash[:volunteer]["phoneNumberEmail"]
+      @defaultProgram = flash[:volunteer]["program"]
+      @defaultOther = flash[:volunteer]["other"]
+    end
   end
   
   def sign_out
@@ -24,7 +30,7 @@ class IfoappController < ApplicationController
   
   def sign_person_out
     the_volunteer = Volunteer.find_by_id(params[:id])
-    flash[:notice] = "#{the_volunteer.name} was Successfully Signed Out."
+    flash[:notice] = "Sign out successful."
     the_volunteer.update_attribute(:time_out, DateTime.now)  
     #signs person out at current time
     redirect_to ifoapp_index_path
@@ -33,11 +39,14 @@ class IfoappController < ApplicationController
   def create
     @current_volunteer = Volunteer.create(params[:volunteer])
     if(@current_volunteer.errors.blank?)   #no errors
-      flash[:notice] = "#{@current_volunteer.name} was Successfully Signed In."    
-    end
-    flash[:notice] = @current_volunteer.errors.first.second if @current_volunteer.errors.any?
+      flash[:notice] = "Sign in successful."  
+      redirect_to ifoapp_index_path and return
+    else
+      flash[:warning] = @current_volunteer.errors.first.second
     #@current_volunteer.errors is a hash of all errors, the first one is the first error, of that error, the second part is the message part of the error (first part is the field that failed verification)
-    redirect_to ifoapp_index_path
+      flash[:volunteer] = params[:volunteer]
+      redirect_to :action => "sign_in"
+    end
   end
   
   def viewall
@@ -93,10 +102,10 @@ class IfoappController < ApplicationController
   end
   
   def staff_login
-    if "the_pass" == params[:password]  #this is the password, it needs to be changed
+    if "Vol2013" == params[:password]  #this is the password, it needs to be changed
       redirect_to :action => "viewall" and return
     else
-      flash[:notice] = "wrong password"
+      flash[:warning] = "wrong password"
     end
     redirect_to :action => "staff_in"
   end

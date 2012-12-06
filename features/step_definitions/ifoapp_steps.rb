@@ -12,7 +12,7 @@ When /^I fill in the fields on the sign in page$/ do
 end
 
 When /^I fill in the sign in password and submit$/ do
-  fill_in("password", :with => "the_pass")
+  fill_in("password", :with => "Vol2013")
   click_button("Staff_Sign_In")
 end
 
@@ -23,11 +23,11 @@ end
 
 
 Then /^I should see a sign in confirmation$/ do
-  assert page.has_content?("was Successfully Signed In")
+  assert page.has_content?("Sign in successful")
 end
 
 Then /^I should see a sign out confirmation$/ do
-  assert page.has_content?("was Successfully Signed Out")
+  assert page.has_content?("Sign out successful")
 end
 
 Given /volunteers exist/ do 

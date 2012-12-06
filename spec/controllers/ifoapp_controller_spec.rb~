@@ -20,9 +20,9 @@ describe IfoappController do
         post :create, contact: FactoryGirl.attributes_for(:invalid_volunteer)
       }.to_not change(Volunteer,:count)
       end
-      it "redirects to the home page"do
+      it "redirects to the sign in page"do
        post :create, volunteer: FactoryGirl.attributes_for(:invalid_volunteer)
-       response.should redirect_to ifoapp_index_path
+       response.should redirect_to :action :sign_in
       end
     end
   end
