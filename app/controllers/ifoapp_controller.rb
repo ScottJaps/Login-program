@@ -1,6 +1,4 @@
 class IfoappController < ApplicationController
-  #http_basic_authenticate_with :name => "starting_username", :password => "starting_password"
-  #uncomment this and put in basic username/password if the computer running this is connected to the internet.
   def index
   end
   
@@ -15,11 +13,7 @@ class IfoappController < ApplicationController
     minute = ((( t.min + 7.5 ) / 15).to_i * 15)%60
     @currentTime = Time.local(t.year, t.month, t.day, t.hour, minute)
     #this rounds the time to the nearest 15 minutes for the default option of the time_select
-<<<<<<< HEAD
     #set defaults when people type bad things in
-=======
-    #set defaults when people type bad things in
->>>>>>> 8709d323cc29c94cfc7716b59e44eb49261ddfe9
     if flash[:volunteer]
       @defaultName = flash[:volunteer]["name"]
       @defaultPhone = flash[:volunteer]["phoneNumberEmail"]
