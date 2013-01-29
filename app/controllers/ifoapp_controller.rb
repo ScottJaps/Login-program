@@ -100,7 +100,7 @@ class IfoappController < ApplicationController
   end
   
   def staff_login
-    if "Vol2013" == params[:password]  #this is the password, it needs to be changed
+    if "*****" == params[:password]  #this is the password, it needs to be changed
       redirect_to :action => "viewall" and return
     else
       flash[:warning] = "wrong password"
