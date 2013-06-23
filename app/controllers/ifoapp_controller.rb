@@ -54,7 +54,7 @@ class IfoappController < ApplicationController
     elsif session[:startdate] != nil
       @selected_startdate = session[:startdate]
     else
-      @selected_startdate = DateTime.new(2012, 10, 1)
+      @selected_startdate = DateTime.3.months.ago
     end
     if params[:enddate] != nil
       @selected_enddate = DateTime.new(params[:enddate]["date(1i)"].to_i, params[:enddate]["date(2i)"].to_i, params[:enddate]["date(3i)"].to_i)
